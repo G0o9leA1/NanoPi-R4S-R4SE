@@ -37,6 +37,11 @@ jobs:
       GENERATE_STATUS: ${{ steps.generate.outputs.GENERATE_STATUS }}
 
     steps:
+    - name: Remove unnecessary files
+      run: |
+        sudo rm -rf /usr/share/dotnet
+        sudo rm -rf "$AGENT_TOOLSDIRECTORY"
+          
     - name: Checkout
       uses: actions/checkout@v3
 
